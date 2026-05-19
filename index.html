@@ -3,855 +3,939 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rudra Ratnakar — Performance Marketing Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>Rudra Ratnakar — Performance Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #0a0a0f;
-    --paper: #f5f3ee;
-    --accent: #e84d2a;
-    --blue: #1a3a6b;
-    --gold: #c9a84c;
-    --muted: #7a7a7a;
-    --border: #d8d4cc;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.6;
-  }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    background: var(--ink);
-    padding: 80px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-  }
-
-  .hero-left::after {
-    content: '';
-    position: absolute;
-    top: 0; right: -40px; bottom: 0;
-    width: 80px;
-    background: var(--ink);
-    clip-path: polygon(0 0, 0 100%, 100% 100%);
-    z-index: 2;
-  }
-
-  .tag {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    font-family: 'Syne', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    margin-bottom: 32px;
-    width: fit-content;
-  }
-
-  .hero-name {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(48px, 6vw, 80px);
-    font-weight: 800;
-    color: white;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .hero-name span { color: var(--accent); }
-
-  .hero-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    color: #888;
-    letter-spacing: 1px;
-    margin-bottom: 40px;
-  }
-
-  .hero-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 40px;
-    padding-top: 40px;
-    border-top: 1px solid #333;
-  }
-
-  .hero-contact a {
-    color: #aaa;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s;
-  }
-
-  .hero-contact a:hover { color: var(--accent); }
-
-  .hero-right {
-    background: var(--paper);
-    padding: 80px 60px 80px 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .hero-summary {
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 48px;
-  }
-
-  .hero-summary strong {
-    color: var(--ink);
-    font-weight: 600;
-  }
-
-  /* STAT CARDS */
-  .stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .stat-card {
-    border: 1.5px solid var(--border);
-    padding: 24px 20px;
-    position: relative;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .stat-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-
-  .stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px; height: 100%;
-    background: var(--accent);
-  }
-
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .stat-label {
-    font-size: 12px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 500;
-  }
-
-  /* SECTION */
-  section {
-    padding: 100px 80px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-eyebrow {
-    font-family: 'Syne', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1.1;
-    margin-bottom: 60px;
-  }
-
-  /* CASE STUDY */
-  .case-study {
-    border: 1.5px solid var(--border);
-    margin-bottom: 48px;
-    overflow: hidden;
-  }
-
-  .case-header {
-    background: var(--ink);
-    padding: 32px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .case-brand {
-    font-family: 'Syne', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: white;
-  }
-
-  .case-type {
-    font-size: 12px;
-    color: #888;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .case-badge {
-    background: var(--accent);
-    color: white;
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 8px 20px;
-  }
-
-  .case-body {
-    padding: 40px;
-  }
-
-  .case-context {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 40px;
-    max-width: 700px;
-  }
-
-  /* METRICS ROW */
-  .metrics-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 0;
-    border: 1.5px solid var(--border);
-    margin-bottom: 40px;
-  }
-
-  .metric {
-    padding: 28px 24px;
-    border-right: 1.5px solid var(--border);
-    text-align: center;
-  }
-
-  .metric:last-child { border-right: none; }
-
-  .metric-val {
-    font-family: 'Syne', sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .metric-val.highlight { color: var(--accent); }
-
-  .metric-desc {
-    font-size: 11px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  /* WHAT I DID */
-  .what-i-did {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-
-  .did-block h4 {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--blue);
-    display: inline-block;
-  }
-
-  .did-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .did-list li {
-    font-size: 14px;
-    color: #444;
-    padding-left: 20px;
-    position: relative;
-    line-height: 1.6;
-  }
-
-  .did-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: 600;
-  }
-
-  /* CAMPAIGN TABLE */
-  .camp-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 32px;
-    font-size: 13px;
-  }
-
-  .camp-table th {
-    background: var(--ink);
-    color: white;
-    font-family: 'Syne', sans-serif;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 12px 16px;
-    text-align: left;
-  }
-
-  .camp-table td {
-    padding: 11px 16px;
-    border-bottom: 1px solid var(--border);
-    color: #444;
-  }
-
-  .camp-table tr:hover td { background: #f0ede6; }
-
-  .roas-pill {
-    background: #e8f5e9;
-    color: #2e7d32;
-    font-weight: 700;
-    font-family: 'Syne', sans-serif;
-    padding: 3px 10px;
-    font-size: 12px;
-    border-radius: 2px;
-  }
-
-  .roas-high { background: #e3f2fd; color: #1565c0; }
-  .roas-best { background: #fff3e0; color: #e65100; }
-
-  /* SKILLS SECTION */
-  .skills-section {
-    background: var(--ink);
-    padding: 100px 80px;
-  }
-
-  .skills-section .section-title { color: white; }
-  .skills-section .section-eyebrow { color: var(--accent); }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    max-width: 1040px;
-    margin: 0 auto;
-  }
-
-  .skill-block {
-    background: #111;
-    padding: 32px 28px;
-    transition: background 0.2s;
-  }
-
-  .skill-block:hover { background: #1a1a1a; }
-
-  .skill-icon {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-
-  .skill-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 10px;
-  }
-
-  .skill-desc {
-    font-size: 13px;
-    color: #777;
-    line-height: 1.6;
-  }
-
-  /* EXPERIENCE */
-  .exp-row {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 40px;
-    padding: 40px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .exp-row:last-child { border-bottom: none; }
-
-  .exp-date {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--muted);
-    padding-top: 4px;
-  }
-
-  .exp-company {
-    font-family: 'Syne', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 4px;
-  }
-
-  .exp-role {
-    font-size: 14px;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-
-  .exp-points {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .exp-points li {
-    font-size: 14px;
-    color: #555;
-    padding-left: 20px;
-    position: relative;
-    line-height: 1.6;
-  }
-
-  .exp-points li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--border);
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--accent);
-    padding: 60px 80px;
-    text-align: center;
-  }
-
-  footer h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: 40px;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 16px;
-  }
-
-  footer p {
-    color: rgba(255,255,255,0.8);
-    font-size: 16px;
-    margin-bottom: 32px;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-
-  .contact-links a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Syne', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-bottom: 2px solid rgba(255,255,255,0.4);
-    padding-bottom: 2px;
-    transition: border-color 0.2s;
-  }
-
-  .contact-links a:hover { border-color: white; }
-
-  /* DIVIDER LINE */
-  .full-divider {
-    height: 1px;
-    background: var(--border);
-    margin: 0 80px;
-  }
-
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left::after { display: none; }
-    .hero-right { padding: 60px 40px; }
-    .hero-left { padding: 60px 40px; }
-    section { padding: 60px 32px; }
-    .what-i-did { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr 1fr; }
-    .exp-row { grid-template-columns: 1fr; gap: 16px; }
-    footer { padding: 40px 32px; }
-    .full-divider { margin: 0 32px; }
-  }
-
-  /* Animations */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-name, .hero-title, .hero-summary, .stat-card {
-    animation: fadeUp 0.6s ease forwards;
-  }
-  .stat-card:nth-child(1) { animation-delay: 0.1s; }
-  .stat-card:nth-child(2) { animation-delay: 0.2s; }
-  .stat-card:nth-child(3) { animation-delay: 0.3s; }
-  .stat-card:nth-child(4) { animation-delay: 0.4s; }
+:root {
+  --bg: #0d0d0d;
+  --surface: #161616;
+  --card: #1e1e1e;
+  --border: #2a2a2a;
+  --lime: #c8f135;
+  --orange: #ff6b35;
+  --white: #f0ede6;
+  --muted: #888;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 48px 64px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,241,53,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--lime);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+.hero-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.eyebrow-line {
+  width: 40px;
+  height: 1px;
+  background: var(--lime);
+}
+
+.eyebrow-text {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-weight: 500;
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 14vw, 160px);
+  line-height: 0.9;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.hero-headline .accent { color: var(--lime); }
+.hero-headline .stroke {
+  -webkit-text-stroke: 1px var(--white);
+  color: transparent;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2vw, 22px);
+  color: var(--muted);
+  font-weight: 300;
+  margin-top: 24px;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.hero-sub strong { color: var(--white); font-weight: 500; }
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 48px;
+}
+
+.hstat-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 1px;
+  color: var(--lime);
+  line-height: 1;
+}
+
+.hstat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--lime);
+  color: #0d0d0d;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  transition: opacity 0.2s;
+}
+
+.hero-cta:hover { opacity: 0.85; }
+
+.arrow {
+  width: 20px; height: 20px;
+  border-top: 2px solid #0d0d0d;
+  border-right: 2px solid #0d0d0d;
+  transform: rotate(45deg);
+}
+
+/* ── MARQUEE ── */
+.marquee-wrap {
+  overflow: hidden;
+  background: var(--lime);
+  padding: 14px 0;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-item {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: #0d0d0d;
+  padding: 0 40px;
+}
+
+.marquee-dot {
+  color: #0d0d0d;
+  opacity: 0.4;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 100px 64px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 64px;
+}
+
+.sec-num {
+  font-family: var(--font-display);
+  font-size: 80px;
+  color: var(--border);
+  line-height: 1;
+}
+
+.sec-title-block {}
+
+.sec-eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  letter-spacing: 2px;
+  line-height: 1;
+  color: var(--white);
+}
+
+/* ── CASE STUDY CARD ── */
+.case-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.case-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 32px 40px;
+  border-bottom: 1px solid var(--border);
+  gap: 24px;
+}
+
+.case-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.case-brand {
+  font-family: var(--font-display);
+  font-size: 36px;
+  letter-spacing: 2px;
+  color: var(--white);
+  line-height: 1;
+}
+
+.roas-badge {
+  background: var(--lime);
+  color: #0d0d0d;
+  font-family: var(--font-display);
+  font-size: 42px;
+  letter-spacing: 2px;
+  padding: 12px 28px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.case-body {
+  padding: 40px;
+}
+
+.case-desc {
+  font-size: 15px;
+  color: #999;
+  line-height: 1.8;
+  max-width: 680px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+/* ── METRICS ── */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.metric {
+  background: var(--card);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.metric-val {
+  font-family: var(--font-display);
+  font-size: 38px;
+  letter-spacing: 1px;
+  color: var(--lime);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.metric-val.white { color: var(--white); }
+
+.metric-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+/* ── TWO COL ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.col-title {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--lime);
+  display: inline-block;
+}
+
+.point-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.point-list li {
+  font-size: 14px;
+  color: #aaa;
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.point-list li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--lime);
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* ── CAMPAIGN TABLE ── */
+.camp-wrap {
+  overflow-x: auto;
+}
+
+.camp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 600px;
+}
+
+.camp-table thead tr {
+  border-bottom: 1px solid var(--lime);
+}
+
+.camp-table th {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--lime);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 400;
+}
+
+.camp-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: #bbb;
+  font-weight: 300;
+}
+
+.camp-table tr:hover td {
+  background: rgba(255,255,255,0.02);
+  color: var(--white);
+}
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 3px 12px;
+}
+
+.pill-lime { background: rgba(200,241,53,0.15); color: var(--lime); }
+.pill-orange { background: rgba(255,107,53,0.15); color: var(--orange); }
+
+/* ── EXPERIENCE ── */
+.exp-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.exp-row:last-child { border-bottom: none; }
+
+.exp-period {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  padding-top: 4px;
+}
+
+.exp-company {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.exp-role {
+  font-size: 13px;
+  color: var(--orange);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.skill-block {
+  background: var(--surface);
+  padding: 36px 32px;
+  transition: background 0.2s;
+}
+
+.skill-block:hover { background: var(--card); }
+
+.skill-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: 2px;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.skill-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.skill-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── FOOTER ── */
+.footer {
+  padding: 80px 64px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 48px;
+}
+
+.footer-big {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 100px);
+  letter-spacing: 2px;
+  line-height: 0.95;
+  color: var(--white);
+}
+
+.footer-big .accent { color: var(--lime); }
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.footer-link {
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link:hover { color: var(--lime); }
+
+.footer-link::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero { padding: 32px; }
+  .section { padding: 64px 32px; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .two-col { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .exp-row { grid-template-columns: 1fr; gap: 16px; }
+  .footer { grid-template-columns: 1fr; padding: 48px 32px; }
+  .footer-contacts { align-items: flex-start; }
+  .hero-bottom { flex-direction: column; gap: 32px; align-items: flex-start; }
+  .case-top { grid-template-columns: 1fr; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-headline { animation: fadeInUp 0.7s ease both; }
+.hero-sub { animation: fadeInUp 0.7s 0.15s ease both; }
+.hero-bottom { animation: fadeInUp 0.7s 0.3s ease both; }
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-left">
-    <div class="tag">Portfolio 2026</div>
-    <div class="hero-name">Rudra<br><span>Ratnakar</span></div>
-    <div class="hero-title">Performance Marketing Specialist</div>
-    <p style="color:#aaa; font-size:15px; line-height:1.8; max-width:360px;">
-      4+ years running Meta Ads and Google Ads for D2C and FMCG brands. I don't just run campaigns — I build systems that generate consistent, scalable returns.
+  <nav class="hero-nav">
+    <div class="nav-logo">RR</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero-center">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">Performance Marketing Specialist</div>
+    </div>
+    <div class="hero-headline">
+      RUDRA<br>
+      <span class="accent">RAT</span><span class="stroke">NAKAR</span>
+    </div>
+    <p class="hero-sub">
+      4+ years building paid campaigns that generate <strong>real revenue</strong>. Meta Ads, Google Ads, full-funnel strategy. I've managed <strong>100+ live campaigns</strong> and delivered <strong>9x+ ROAS</strong> for D2C brands.
     </p>
-    <div class="hero-contact">
-      <a href="mailto:ratnakar.rudra21@gmail.com">ratnakar.rudra21@gmail.com</a>
-      <a href="tel:+919975636263">+91 9975636263</a>
-      <a href="https://linkedin.com/in/ratnakar-rudra-8a8230166" target="_blank">linkedin.com/in/ratnakar-rudra-8a8230166</a>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-num">9.23x</div>
+        <div class="hstat-label">Blended ROAS</div>
+      </div>
+      <div>
+        <div class="hstat-num">₹22.5L</div>
+        <div class="hstat-label">Revenue Generated</div>
+      </div>
+      <div>
+        <div class="hstat-num">100+</div>
+        <div class="hstat-label">Campaigns Managed</div>
+      </div>
+      <div>
+        <div class="hstat-num">4+</div>
+        <div class="hstat-label">Years Experience</div>
+      </div>
+    </div>
+    <a class="hero-cta" href="mailto:ratnakar.rudra21@gmail.com">
+      Hire Me <div class="arrow"></div>
+    </a>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">META ADS</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">GOOGLE ADS</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">PERFORMANCE MAX</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">FULL FUNNEL STRATEGY</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">ROAS OPTIMIZATION</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">D2C BRANDS</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">META ADS</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">GOOGLE ADS</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">PERFORMANCE MAX</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">FULL FUNNEL STRATEGY</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">ROAS OPTIMIZATION</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">D2C BRANDS</span><span class="marquee-dot">✦</span>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<div class="section" id="work">
+  <div class="sec-header">
+    <div class="sec-num">01</div>
+    <div class="sec-title-block">
+      <div class="sec-eyebrow">Case Studies</div>
+      <div class="sec-title">SELECTED<br>WORK</div>
     </div>
   </div>
 
-  <div class="hero-right">
-    <p class="hero-summary">
-      Specialist in <strong>full-funnel paid advertising</strong> — from cold audience awareness to conversion and retargeting. Delivered <strong>9.23x blended ROAS</strong> on Google Ads and consistently maintained <strong>7x+ ROAS on Meta</strong> for a D2C food brand across 36 campaigns.
-    </p>
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-num">9.23x</div>
-        <div class="stat-label">Blended Google Ads ROAS</div>
+  <!-- GOOGLE ADS -->
+  <div class="case-card">
+    <div class="case-top">
+      <div>
+        <div class="case-label">Google Ads — Jun 2025 to May 2026</div>
+        <div class="case-brand">PALLETURI PACHALLU</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">₹22.5L+</div>
-        <div class="stat-label">Conversion Value Generated</div>
+      <div class="roas-badge">9.23X ROAS</div>
+    </div>
+    <div class="case-body">
+      <p class="case-desc">
+        Andhra homemade D2C food brand — pickles, fish, prawns, sweets. Zero prior Google Ads history. I built the entire account from scratch: keyword research, campaign architecture, bid strategy and conversion tracking. Scaled to ₹22.5L+ revenue in under a year.
+      </p>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-val">₹2.44L</div>
+          <div class="metric-label">Total Spend</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">₹22.57L</div>
+          <div class="metric-label">Revenue</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">9.23x</div>
+          <div class="metric-label">Blended ROAS</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val white">3,237</div>
+          <div class="metric-label">Conversions</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val white">₹75.53</div>
+          <div class="metric-label">Cost / Conv.</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val white">2,635</div>
+          <div class="metric-label">Add to Carts</div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">36</div>
-        <div class="stat-label">Meta Campaigns Managed</div>
+
+      <div class="two-col">
+        <div>
+          <div class="col-title">What I Did</div>
+          <ul class="point-list">
+            <li>Built Google Ads account from zero — full structure and setup</li>
+            <li>Created Search, Performance Max, Retargeting and Demand Gen campaigns</li>
+            <li>Set up conversion tracking for purchases and add-to-carts</li>
+            <li>Keyword research for homemade food, pickles, prawns niches</li>
+            <li>Managed Target CPA bids at ₹50–₹90 per conversion</li>
+            <li>Daily monitoring — paused weak campaigns, scaled winners</li>
+          </ul>
+        </div>
+        <div>
+          <div class="col-title">Key Results</div>
+          <ul class="point-list">
+            <li>Search Ad 1 alone — ₹16.5L revenue on ₹1.69L spend (9.77x)</li>
+            <li>Performance Max — 8.85x ROAS</li>
+            <li>Retargeting campaign — 8.05x ROAS on ₹22,188 spend</li>
+            <li>Avg cost per conversion held at ₹75.53 across all campaigns</li>
+            <li>2,635 add-to-cart events — strong purchase intent signals</li>
+          </ul>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">3,237</div>
-        <div class="stat-label">Total Conversions Tracked</div>
+
+      <div class="camp-wrap">
+        <table class="camp-table">
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>Spend</th>
+              <th>Revenue</th>
+              <th>ROAS</th>
+              <th>Conversions</th>
+              <th>Cost/Conv.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Search Ad 1</td>
+              <td>₹1,69,424</td>
+              <td>₹16,55,577</td>
+              <td><span class="pill pill-orange">9.77x</span></td>
+              <td>1,977</td>
+              <td>₹85.68</td>
+            </tr>
+            <tr>
+              <td>Performance Max 17.12</td>
+              <td>₹43,352</td>
+              <td>₹3,83,516</td>
+              <td><span class="pill pill-lime">8.85x</span></td>
+              <td>505</td>
+              <td>₹85.69</td>
+            </tr>
+            <tr>
+              <td>Search Ad Retargeting</td>
+              <td>₹22,188</td>
+              <td>₹1,78,598</td>
+              <td><span class="pill pill-lime">8.05x</span></td>
+              <td>208</td>
+              <td>₹106.46</td>
+            </tr>
+            <tr>
+              <td>Demand Gen</td>
+              <td>₹6,474</td>
+              <td>₹32,808</td>
+              <td><span class="pill pill-lime">5.07x</span></td>
+              <td>22</td>
+              <td>₹289.82</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- META ADS -->
+  <div class="case-card">
+    <div class="case-top">
+      <div>
+        <div class="case-label">Meta Ads — Apr 2023 to May 2026 — 36 Campaigns</div>
+        <div class="case-brand">PALLETURI PACHALLU</div>
+      </div>
+      <div class="roas-badge">7–8X ROAS</div>
+    </div>
+    <div class="case-body">
+      <p class="case-desc">
+        Ran the complete Meta Ads strategy across 3 years — awareness, sales, retargeting and video funnels. Managed 36 campaigns covering pickles, fish, prawns, sweets, mango pickle and dry fruits. Built the brand from zero social presence to a consistent revenue engine.
+      </p>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-val">36</div>
+          <div class="metric-label">Campaigns</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">7–8x</div>
+          <div class="metric-label">Peak ROAS</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val white">7.4M+</div>
+          <div class="metric-label">Impressions</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val white">6</div>
+          <div class="metric-label">Active Now</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div class="col-title">Strategy</div>
+          <ul class="point-list">
+            <li>Full funnel — awareness videos, sales, retargeting, lookalikes</li>
+            <li>Separate campaigns per product category</li>
+            <li>UGC-style regional video creatives</li>
+            <li>Festival and seasonal campaign spikes</li>
+            <li>Influencer sales campaigns for trust building</li>
+            <li>Tested image vs video — video consistently won</li>
+          </ul>
+        </div>
+        <div>
+          <div class="col-title">Top Campaigns</div>
+          <ul class="point-list">
+            <li>01.12 Sale Video Retargeting — 7.31x ROAS, 570 purchases</li>
+            <li>Influencer Sales Campaign — 7.83x ROAS, 579 purchases</li>
+            <li>13.12 Retargeting — 7.40x ROAS, 405 results</li>
+            <li>18.11 Retargeting (High Performing) — 6.93x ROAS</li>
+            <li>01.04 Image Sales Campaign — 7.88x ROAS</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CASE STUDY 1 -->
-<section>
-  <div class="section-eyebrow">Case Study 01</div>
-  <div class="section-title">Palleturi Pachallu<br>D2C Food Brand — India</div>
-
-  <div class="case-study">
-    <div class="case-header">
-      <div>
-        <div class="case-brand">Google Ads Campaign</div>
-        <div class="case-type">Search + Performance Max + Retargeting — Jun 2025 to May 2026</div>
-      </div>
-      <div class="case-badge">9.23x ROAS</div>
-    </div>
-    <div class="case-body">
-      <p class="case-context">
-        Palleturi Pachallu is a D2C Andhra homemade food brand selling pickles, prawns, fish curry, sweets and dry fruits online. The brand had zero prior Google Ads history. I built the entire account structure from scratch — keyword research, campaign setup, bid strategy, conversion tracking and scaling.
-      </p>
-
-      <div class="metrics-row">
-        <div class="metric">
-          <div class="metric-val highlight">₹2,44,480</div>
-          <div class="metric-desc">Total Ad Spend</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val highlight">₹22,57,158</div>
-          <div class="metric-desc">Revenue Generated</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val highlight">9.23x</div>
-          <div class="metric-desc">Blended ROAS</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val highlight">3,237</div>
-          <div class="metric-desc">Total Conversions</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val">₹75.53</div>
-          <div class="metric-desc">Avg Cost/Conversion</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val">2,635</div>
-          <div class="metric-desc">Add-to-Carts</div>
-        </div>
-      </div>
-
-      <div class="what-i-did">
-        <div class="did-block">
-          <h4>What I Did</h4>
-          <ul class="did-list">
-            <li>Built Google Ads account from zero — full structure setup</li>
-            <li>Created Search, Performance Max, Retargeting and Demand Gen campaigns</li>
-            <li>Set up conversion tracking for purchases and add-to-carts</li>
-            <li>Keyword research for Andhra homemade food, pickles, prawns segments</li>
-            <li>Managed bids with Target CPA strategy — ₹50–₹90 target per conversion</li>
-            <li>Daily monitoring and optimization — paused weak campaigns, scaled winners</li>
-          </ul>
-        </div>
-        <div class="did-block">
-          <h4>Key Results</h4>
-          <ul class="did-list">
-            <li>Search Ad 1 alone generated ₹16.5L revenue on ₹1.69L spend (9.77x)</li>
-            <li>Retargeting campaign delivered 8.05x ROAS on ₹22,188 spend</li>
-            <li>Performance Max campaign achieved 8.85x ROAS</li>
-            <li>Average cost per conversion held at ₹75.53 across all campaigns</li>
-            <li>2,635 add-to-cart events tracked — strong purchase intent signals</li>
-          </ul>
-        </div>
-      </div>
-
-      <table class="camp-table" style="margin-top:40px;">
-        <thead>
-          <tr>
-            <th>Campaign</th>
-            <th>Spend</th>
-            <th>Revenue</th>
-            <th>ROAS</th>
-            <th>Conversions</th>
-            <th>Cost/Conv.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Search Ad 1</td>
-            <td>₹1,69,424</td>
-            <td>₹16,55,577</td>
-            <td><span class="roas-pill roas-best">9.77x</span></td>
-            <td>1,977</td>
-            <td>₹85.68</td>
-          </tr>
-          <tr>
-            <td>Performance Max 17.12</td>
-            <td>₹43,352</td>
-            <td>₹3,83,516</td>
-            <td><span class="roas-pill roas-high">8.85x</span></td>
-            <td>505</td>
-            <td>₹85.69</td>
-          </tr>
-          <tr>
-            <td>Search Ad Retargeting</td>
-            <td>₹22,188</td>
-            <td>₹1,78,598</td>
-            <td><span class="roas-pill">8.05x</span></td>
-            <td>208</td>
-            <td>₹106.46</td>
-          </tr>
-          <tr>
-            <td>Demand Gen</td>
-            <td>₹6,474</td>
-            <td>₹32,808</td>
-            <td><span class="roas-pill">5.07x</span></td>
-            <td>22</td>
-            <td>₹289.82</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- CASE STUDY META -->
-  <div class="case-study">
-    <div class="case-header">
-      <div>
-        <div class="case-brand">Meta Ads Campaign</div>
-        <div class="case-type">36 Campaigns — Apr 2023 to May 2026</div>
-      </div>
-      <div class="case-badge">7x+ ROAS</div>
-    </div>
-    <div class="case-body">
-      <p class="case-context">
-        Ran the complete Meta Ads strategy for Palleturi Pachallu across 3 years — building from initial awareness campaigns through to a full retargeting and video funnel. Managed 36 campaigns covering multiple product lines including pickles, fish, prawns, sweets, mango pickle and dry fruits.
-      </p>
-
-      <div class="metrics-row">
-        <div class="metric">
-          <div class="metric-val highlight">36</div>
-          <div class="metric-desc">Total Campaigns</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val highlight">7–8x</div>
-          <div class="metric-desc">Peak Campaign ROAS</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val highlight">7.4M+</div>
-          <div class="metric-desc">Total Impressions</div>
-        </div>
-        <div class="metric">
-          <div class="metric-val highlight">6</div>
-          <div class="metric-desc">Active Campaigns Now</div>
-        </div>
-      </div>
-
-      <div class="what-i-did">
-        <div class="did-block">
-          <h4>Strategy Used</h4>
-          <ul class="did-list">
-            <li>Full funnel — awareness videos, retargeting, lookalike audiences</li>
-            <li>UGC-style video creatives for regional food products</li>
-            <li>Separate campaigns per product — pickles, prawns, fish, sweets</li>
-            <li>Festival campaigns for seasonal spikes</li>
-            <li>Influencer sales campaigns for brand trust building</li>
-            <li>A/B tested image vs video — video consistently outperformed</li>
-          </ul>
-        </div>
-        <div class="did-block">
-          <h4>Top Performing Campaigns</h4>
-          <ul class="did-list">
-            <li>01.12 Sale Video Retargeting — 7.31x ROAS, 570 purchases</li>
-            <li>Influencers Sales Campaign — 7.83x ROAS, 579 purchases</li>
-            <li>13.12 Retargeting — 7.40x ROAS, 405 results</li>
-            <li>18.11 Retargeting (High Performing) — 6.93x ROAS</li>
-            <li>01.04 Image Sales Campaign — 7.88x ROAS</li>
-            <li>Consistent ₹85–₹110 cost per purchase across active campaigns</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="full-divider"></div>
-
 <!-- EXPERIENCE -->
-<section>
-  <div class="section-eyebrow">Work History</div>
-  <div class="section-title">Experience</div>
+<div class="section" id="experience">
+  <div class="sec-header">
+    <div class="sec-num">02</div>
+    <div class="sec-title-block">
+      <div class="sec-eyebrow">Work History</div>
+      <div class="sec-title">EXPERI-<br>ENCE</div>
+    </div>
+  </div>
 
   <div class="exp-row">
-    <div class="exp-date">Mar 2024 — Present</div>
+    <div class="exp-period">MAR 2024<br>PRESENT</div>
     <div>
-      <div class="exp-company">Media Quest Group Limited</div>
+      <div class="exp-company">MEDIA QUEST GROUP</div>
       <div class="exp-role">Performance Marketing Specialist — Dubai (Remote)</div>
-      <ul class="exp-points">
+      <ul class="point-list">
         <li>Managed 100+ concurrent campaigns simultaneously on Adjunction platform, uploading 50+ campaigns daily</li>
-        <li>Handled keyword discovery and market research for Yahoo client across European travel markets (UK, Germany, France)</li>
+        <li>Handled keyword discovery and market research for Yahoo client across UK, Germany and France</li>
         <li>Maintained ~5x ROAS with $3,000–$4,000+ consistent positive EOM performance</li>
-        <li>Optimized live campaigns daily — cutting spend on underperformers, scaling winners</li>
-        <li>Created image creatives and optimized ad copies for Meta and Display channels</li>
+        <li>Optimized live campaigns daily — cutting wasted spend, scaling winners</li>
       </ul>
     </div>
   </div>
 
   <div class="exp-row">
-    <div class="exp-date">Nov 2025 — Present</div>
+    <div class="exp-period">NOV 2025<br>PRESENT</div>
     <div>
-      <div class="exp-company">Palleturi Pachallu</div>
+      <div class="exp-company">PALLETURI PACHALLU</div>
       <div class="exp-role">Performance Marketing Specialist — Freelance</div>
-      <ul class="exp-points">
+      <ul class="point-list">
         <li>Built Google Ads from zero — delivered 9.23x blended ROAS on ₹2,44,480 spend</li>
         <li>Generated ₹22,57,158 in revenue with 3,237 tracked conversions</li>
-        <li>Managed full-funnel Meta Ads across 36 campaigns — 7x+ ROAS on top campaigns</li>
-        <li>Complete account ownership — strategy, setup, creative briefing, optimization, reporting</li>
+        <li>Managed 36 Meta Ads campaigns — 7x+ ROAS on top campaigns</li>
+        <li>Complete account ownership — strategy, setup, optimization, reporting</li>
       </ul>
     </div>
   </div>
-</section>
+</div>
 
 <!-- SKILLS -->
-<div class="skills-section">
-  <div style="max-width:1040px; margin:0 auto;">
-    <div class="section-eyebrow">What I Bring</div>
-    <div class="section-title" style="margin-bottom:48px;">Core Skills</div>
-    <div class="skills-grid">
-      <div class="skill-block">
-        <div class="skill-icon">🎯</div>
-        <div class="skill-name">Meta Ads</div>
-        <div class="skill-desc">Full funnel — sales, traffic, engagement, retargeting. Lookalike and custom audience architecture.</div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-icon">🔍</div>
-        <div class="skill-name">Google Ads</div>
-        <div class="skill-desc">Search, Performance Max, Demand Gen, Retargeting. Target CPA and maximize conversion value strategies.</div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-icon">📊</div>
-        <div class="skill-name">Performance Analysis</div>
-        <div class="skill-desc">ROAS, CAC, LTV analysis. Daily optimization decisions backed by data — not guesswork.</div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-icon">🎬</div>
-        <div class="skill-name">Creative Strategy</div>
-        <div class="skill-desc">UGC vs static testing. Ad copy writing. Creative briefing and iteration based on CTR and ROAS data.</div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-icon">⚙️</div>
-        <div class="skill-name">GTM & Tracking</div>
-        <div class="skill-desc">Google Tag Manager, GA4, conversion tracking setup. React/Next.js implementation experience.</div>
-      </div>
-      <div class="skill-block">
-        <div class="skill-icon">🌍</div>
-        <div class="skill-name">International Campaigns</div>
-        <div class="skill-desc">Managed campaigns across 5+ European markets. Keyword research for US and EU audiences.</div>
-      </div>
+<div class="section">
+  <div class="sec-header">
+    <div class="sec-num">03</div>
+    <div class="sec-title-block">
+      <div class="sec-eyebrow">What I Do</div>
+      <div class="sec-title">CORE<br>SKILLS</div>
+    </div>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-num">01</div>
+      <div class="skill-name">META ADS</div>
+      <div class="skill-desc">Full funnel sales, traffic, engagement, retargeting. Lookalike and custom audience architecture across D2C and FMCG.</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-num">02</div>
+      <div class="skill-name">GOOGLE ADS</div>
+      <div class="skill-desc">Search, Performance Max, Demand Gen, Retargeting. Target CPA and maximize conversion value bid strategies.</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-num">03</div>
+      <div class="skill-name">GTM & TRACKING</div>
+      <div class="skill-desc">Google Tag Manager, GA4, conversion tracking. React and Next.js implementation. Full data setup before ad spend.</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-num">04</div>
+      <div class="skill-name">CREATIVE STRATEGY</div>
+      <div class="skill-desc">UGC vs static testing. Ad copy writing and creative briefing. Iterating based on CTR and ROAS data.</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-num">05</div>
+      <div class="skill-name">PERFORMANCE ANALYSIS</div>
+      <div class="skill-desc">ROAS, CAC, LTV analysis. Daily optimization decisions backed by data — not guesswork.</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-num">06</div>
+      <div class="skill-name">INTERNATIONAL MARKETS</div>
+      <div class="skill-desc">Managed campaigns across 5+ European markets for US clients. Keyword research and audience discovery for EU audiences.</div>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <h2>Let's Work Together</h2>
-  <p>Open to remote performance marketing roles and freelance projects.</p>
-  <div class="contact-links">
-    <a href="mailto:ratnakar.rudra21@gmail.com">ratnakar.rudra21@gmail.com</a>
-    <a href="tel:+919975636263">+91 9975636263</a>
-    <a href="https://linkedin.com/in/ratnakar-rudra-8a8230166" target="_blank">LinkedIn Profile</a>
+<div class="footer" id="contact">
+  <div class="footer-big">
+    LET'S<br>WORK<br><span class="accent">TOGETHER</span>
   </div>
-</footer>
+  <div class="footer-contacts">
+    <a class="footer-link" href="mailto:ratnakar.rudra21@gmail.com">ratnakar.rudra21@gmail.com</a>
+    <a class="footer-link" href="tel:+919975636263">+91 9975636263</a>
+    <a class="footer-link" href="https://linkedin.com/in/ratnakar-rudra-8a8230166" target="_blank">LinkedIn Profile</a>
+  </div>
+</div>
 
 </body>
 </html>
